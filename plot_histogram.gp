@@ -3,7 +3,7 @@
 
 #set term qt size 600,450 enhanced persist
 set term png size 900,700 enhanced
-set output 'write-function.png'
+set output 'images/write-function.png'
 
 
 

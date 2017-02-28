@@ -27,15 +27,20 @@ A test was a combination of the options listed above for each container.
 
 The histograms below outlines the results for this experiment:
 
-![alt text](write-function.png "Experiment comparing std::vector and std::array")
+![alt text](images/write-function.png "Experiment comparing std::vector and std::array")
 
 As can be seen from the right two graph in the figure, once the optimisation flag is turned on there is very little difference between all the containers or method of access. In the un-optimised case using a `std::array` with `iterators` outperforms all other options in the two regimes of large and small element number.
 
 
 The next function tested was the `std::default_random_engine` using a `std::uniform_real_distribution<double>`.
 
-![alt text](write-random.png "Experiment comparing std::vector and std::array")
+![alt text](images/write-random.png "Experiment comparing std::vector and std::array")
 
 However there is even less to distinguish between the different cases here, most likely because the random engine take a long time to process so smears out any differences between containers or access.
 
+### Conclusion
+
+There appear to be very few differences in speed between the difference containers, when optimisation is turned on. Possibly another important check will be read speeds, which might help decided the best candidate for this job.
+
+The only (trivial) conclusion to be made is to turn on optimisation when speed is necessary
 
