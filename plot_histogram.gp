@@ -2,8 +2,8 @@
 
 
 #set term qt size 600,450 enhanced persist
-set term svg size 600,450 enhanced
-set output 'write-random.svg'
+set term png size 900,700 enhanced
+set output 'write-function.png'
 
 
 
@@ -17,7 +17,7 @@ set xtics format ''
 
 set grid ytics
 set log y
-set yrange[1.0e-7:1.0e-4]
+set yrange[1.0e-8:1.0e-5]
 
 #set multiplot layout 2,2 rowsfirst title 'Assignment function: v_i = (c*=1.5)'
 set multiplot layout 2,2 rowsfirst title 'Assignment function: uniform random number'
@@ -51,7 +51,7 @@ plot datafile using 2:xtic(1) title "vector - run time", \
 
 set ylabel 'Duration (secs)'
 set format y '10^{%L}'
-set yrange[1.0e-6:1.0e-3]
+set yrange[1.0e-7:1.0e-4]
 
 datafile="data/large_unopt.dat"
 set title "Large, Unoptimised"

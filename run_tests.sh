@@ -9,7 +9,7 @@
 
 small_elem=50
 large_elem=1000
-n_tests=100000
+n_tests=10000
 
 
 

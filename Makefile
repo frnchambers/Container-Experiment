@@ -11,4 +11,4 @@ LDFLAGS =
 .PHONEY: clean
 clean:
 	rm -rf bin/*.out
-	rm -rf data/*.dat
+
