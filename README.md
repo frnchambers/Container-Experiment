@@ -1,7 +1,7 @@
 Comparison of using `std::vector` and `std::array` in C++
 ------
 
-The project I'm about to start will require using one of these containers to store a numerical grid for PDE solving. I wanted to have a *reason* to use either, so did a simple numerical experiment to get a zeroth order answer. The test has only been performed on the GNU g++5.2.1 compiler on a laptop which runs an Intel Core i5-4258U CPU @ 2.40GHz. The experiment tests only serial, not parallel code.
+The project I'm about to start will require using one of these containers to store a numerical grid for PDE solving. I wanted to have a *reason* to use either, so did a simple numerical experiment to get a **zeroth order answer**. The test has only been performed on the GNU g++5.2.1 compiler on a laptop which runs an Intel Core i5-4258U CPU @ 2.40GHz. The experiment tests only serial, not parallel code.
 
 There are three ways of using these containers: `std::vector` with the size specified at compile time **and** run time, and `std::array` which only takes size at compile time.
 
@@ -13,11 +13,11 @@ There are a few different considerations for how each container can be used:
 * optimisation using compiler flags, in this case `-O3`
 
 A test was measured as follow:
-1. start a timer
-2. initialise the container to the correct size
-3. loop through the container filling each element using a function
-4. stop the timer, add this duration to the average
-5. repeat for the desired average
+* start a timer
+* initialise the container to the correct size
+* loop through the container filling each element using a function
+* stop the timer, add this duration to the average
+* repeat for the desired average
 
 This approximately reflects the way which the container will be implemented in future code, initialised using a function. Initialiser-list would be faster, but don't reflect how the container will actually be used.
 
