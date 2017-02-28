@@ -1,26 +1,12 @@
 #include <iostream>
-#include <random>
 #include <chrono>
-
 #include <vector>
 #include <array>
 
+#include "Populate_fn.hpp"
 
-double f () {
-  // static std::default_random_engine eng;
-  // static std::uniform_real_distribution<double> dist(-10,10);
-  // return dist(eng);
-
-  static double c=1.0;
-  return (c+=1.5);
-}
-
-
-int main () {
+int main ( int argc, char * argv [] ) {
   std::cout << std::scientific;
-
-  // std::default_random_engine eng;
-  // std::uniform_real_distribution<double> dist(-10,10);
 
   const size_t
     N_elem=ELEMENTS,
@@ -36,6 +22,7 @@ int main () {
   for ( size_t n=0; n<N_tests; ++n ) {
     start_time = std::chrono::high_resolution_clock::now();
 
+
 #if defined VECTOR
     std::vector<double> vec(N_elem);
 #elif defined ARRAY
@@ -44,15 +31,17 @@ int main () {
 #error Container definition required!
 #endif
 
-#if defined INDEX
+
+#if defined ITERATOR
     for ( double &vi : vec )
       vi = f();
-#elif defined ITERATOR
+#elif defined INDEX
     for ( size_t i=0; i<vec.size(); ++i )
       vec[i] = f();
 #else
 #error Iteration method required!
 #endif
+
 
     dur = std::chrono::high_resolution_clock::now() - start_time;
     mean_time += dur.count() / N;
