@@ -27,6 +27,8 @@ int main ( int argc, char * argv [] ) {
     std::vector<double> vec(N_elem);
 #elif defined ARRAY
     std::array<double, N_elem> vec;
+#elif defined CARR
+    double * vec = new double [N_elem];
 #else
 #error Container definition required!
 #endif

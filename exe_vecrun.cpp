@@ -23,13 +23,15 @@ int main ( int argc, char * argv [] ) {
     start_time = std::chrono::high_resolution_clock::now();
 
 
-
+#if defined VECTOR
     std::vector<double> vec(N_elem);
 
 
-
-
-
+#elif defined CARR
+    double * vec = new double [N_elem];
+#else
+#error Container definition required!
+#endif
 
 
 #if defined ITERATOR
