@@ -3,13 +3,20 @@
 
 #include <random>
 
-double f () {
-  // static std::default_random_engine eng;
-  // static std::uniform_real_distribution<double> dist(-10,10);
-  // return dist(eng);
+struct rand_init {
+  std::default_random_engine eng;
+  std::uniform_real_distribution<double> dist;
+  rand_init () : dist (0.0, 10.0) {}
+  double operator() () {
+    return dist(eng);
+  }
+};
 
-  static double c=1.0;
-  return (c*=1.5);
-}
+struct static_init {
+  double c=1.0;
+  double operator() () {
+    return (c*=1.5);
+  }
+};
 
 #endif

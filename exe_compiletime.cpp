@@ -35,10 +35,10 @@ int main ( int argc, char * argv [] ) {
 
 
 #if defined ITERATOR
-    for ( double &vi : vec )
+    for (double &vi : vec)
       vi = f();
 #elif defined INDEX
-    for ( size_t i=0; i<vec.size(); ++i )
+    for (size_t i=0; i<vec.size(); ++i)
       vec[i] = f();
 #else
 #error Iteration method required!

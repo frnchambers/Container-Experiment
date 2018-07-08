@@ -1,0 +1,16 @@
+
+options:
+    container type: std::vector, std::array, c-style array
+    size, powers of 2: 8 - 2,048
+    iteration method: index or itterator
+    initialisation scheme: random, static
+    * optimisation level: -, O1, O2, O3
+
+* => cannot do within one binary
+
+plots:
+    x-axis: size
+    y-axis: time taken
+
+
+
